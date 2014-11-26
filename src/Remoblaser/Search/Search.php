@@ -1,7 +1,7 @@
 <?php namespace Remoblaser\Search;
 
-use App;
-use Config;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use Remoblaser\Search\Exception\SearchException;
 use Remoblaser\Search\Exception\SearchNotImplementedException;
 

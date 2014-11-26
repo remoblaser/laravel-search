@@ -13,7 +13,7 @@ trait SearchableTrait {
      */
     public function searchFields()
     {
-        if(!property_exists($this, 'searchFields'))
+        if( ! property_exists($this, 'searchFields'))
             throw new SearchException("Member searchFields on ". get_class($this) ." have not been defined");
 
         return $this->searchFields;
