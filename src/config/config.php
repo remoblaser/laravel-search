@@ -1,5 +1,5 @@
 <?php
 
 return array(
-    'user' => 'User',
+    'users' => 'User',
 );

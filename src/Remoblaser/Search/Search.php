@@ -24,7 +24,7 @@ class Search {
 
     private function getObjectForFunction($function)
     {
-        $classname = Config::get("search::bindings.$function");
+        $classname = Config::get("search::$function");
         if(is_null($classname) || $classname == "")
             throw new SearchException("No model for $function has been found in the config.");
 
