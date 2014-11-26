@@ -62,3 +62,6 @@ Now you can Search through your Tables from anywhere in your application by usin
 ```php
 Search::posts('bla')
 ```
+
+
+Feel free to make pull requests, this is my first laravel package so im sure i did things badly
