@@ -63,5 +63,10 @@ Now you can Search through your Tables from anywhere in your application by usin
 Search::posts('bla')
 ```
 
+Or you could search all registered Tables for the Keyword.
+
+```php
+Search::all('bla')
+```
 
 Feel free to make pull requests, this is my first laravel package so im sure i did things badly
