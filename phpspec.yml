@@ -1,0 +1,5 @@
+suites:
+  remoblaser_suite:
+    namespace: Remoblaser
+    src_path: src
+    spec_prefix: spec
