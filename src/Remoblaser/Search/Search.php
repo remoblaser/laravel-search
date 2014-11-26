@@ -18,7 +18,7 @@ class Search {
     public function __call($function, $args)
     {
         $keyword = $args[0];
-        $searchable = $this->getModelForFunction($function);
+        $searchable = $this->getSearchableFor($function);
 
         $resultSet = $this->search($searchable, $keyword);
 
@@ -32,7 +32,7 @@ class Search {
      * @return mixed
      * @throws SearchException
      */
-    private function getModelForFunction($function)
+    private function getSearchableFor($function)
     {
         $className = Config::get("search::$function");
 
@@ -74,7 +74,7 @@ class Search {
 
         return $searchable->where(function($query) use ($searchFields, $keyword){
             foreach($searchFields as $field) {
-                $query->orWhere($field, "LIKE", '%' . $keyword . '%');
+                $query->orWhere($field, "LIKE" , '%' . $keyword . '%');
             }
         })->get();
     }
