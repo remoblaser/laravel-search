@@ -46,7 +46,7 @@ return array(
 Afterwards you have to implement the SearchableTrait in your Model and define the Fields which you would like to search. In this example i would like to search through the titles and the bodies.
 
 ```php
-My\Sample\Namespace;
+<?php namespace My\Sample\Namespace;
 
 use Remoblaser\Search\SearchableTrait;
 
