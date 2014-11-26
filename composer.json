@@ -1,6 +1,7 @@
 {
     "name": "remoblaser/search",
     "description": "A simple to implement Search for your Application",
+    "license": "MIT",
     "keywords": [
         "search", "laravel"
     ],

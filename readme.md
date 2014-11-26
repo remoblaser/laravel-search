@@ -34,7 +34,7 @@ php artisan config:publish remoblaser/search
 
 ## Usage
 
-After publishing the config, you will find a config file under `c`, bind your Models to a key here, if you have a `Posts` table for example, add it here:
+After publishing the config, you will find a config file under `app/packages/remoblaser/search/config.php`, bind your Models to a key here, if you have a `Posts` table for example, add it here:
 
 ```php
 return array(
