@@ -7,27 +7,75 @@ use Remoblaser\Search\Exception\SearchNotImplementedException;
 
 class Search {
 
-    public function __call($func, $args)
+    /**
+     * Handle static calls on the Search Facade
+     *
+     * @param $function
+     * @param $args
+     * @return mixed
+     * @throws SearchException
+     */
+    public function __call($function, $args)
     {
-        $searchable = $this->getObjectForFunction($func);
+        $keyword = $args[0];
+        $searchable = $this->getModelForFunction($function);
 
-        $fields = $searchable->searchFields();
+        $resultSet = $this->search($searchable, $keyword);
 
-        return $searchable->where(function($query) use ($fields, $args){
-            foreach($fields as $field)
-            {
-
-                $query->orWhere($field, "LIKE", '%' . $args[0] . '%');
-            }
-        })->get();
+        return $resultSet;
     }
 
-    private function getObjectForFunction($function)
+    /**
+     * Returns the specified Model for the function, determined by the Config file
+     *
+     * @param $function
+     * @return mixed
+     * @throws SearchException
+     */
+    private function getModelForFunction($function)
     {
-        $classname = Config::get("search::$function");
-        if(is_null($classname) || $classname == "")
+        $className = Config::get("search::$function");
+
+        if(is_null($className))
             throw new SearchException("No model for $function has been found in the config.");
 
-        return App::make($classname);
+        return App::make($className);
+    }
+
+    /**
+     * Searches all available Models for the specified keyword
+     *
+     * @param $keyword
+     * @return array
+     */
+    public function all($keyword)
+    {
+        $registeredModels = Config::get("search::config");
+
+        $resultSet = [];
+        foreach($registeredModels as $model) {
+            $searchable = App::make($model);
+            $resultSet[] = $this->search($searchable, $keyword);
+        }
+
+        return $resultSet;
+    }
+
+    /**
+     * Searches the specified Searchable/Model for the specified keyword
+     *
+     * @param $searchable
+     * @param $keyword
+     * @return mixed
+     */
+    private function search($searchable, $keyword)
+    {
+        $searchFields = $searchable->searchFields();
+
+        return $searchable->where(function($query) use ($searchFields, $keyword){
+            foreach($searchFields as $field) {
+                $query->orWhere($field, "LIKE", '%' . $keyword . '%');
+            }
+        })->get();
     }
 } 
