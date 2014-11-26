@@ -5,6 +5,12 @@ use Remoblaser\Search\Exception\SearchException;
 
 trait SearchableTrait {
 
+    /**
+     * Returns the Searchable fields
+     *
+     * @return mixed
+     * @throws SearchException
+     */
     public function searchFields()
     {
         if(!property_exists($this, 'searchFields'))
