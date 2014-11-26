@@ -26,8 +26,8 @@ class Search {
     {
         $classname = Config::get("search::bindings.$function");
         if(is_null($classname) || $classname == "")
-            throw new SearchException("No model for $function has been found. Did you define it in the search config?");
-        
+            throw new SearchException("No model for $function has been found in the config.");
+
         return App::make($classname);
     }
 } 

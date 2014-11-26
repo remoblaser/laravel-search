@@ -14,9 +14,6 @@
         "php": ">=5.4.0",
         "illuminate/support": "4.2.*"
     },
-    "require-dev": {
-        "phpspec/phpspec": "2.0.*@dev"
-    },
     "autoload": {
         "psr-0": {
             "Remoblaser\\Search": "src/"

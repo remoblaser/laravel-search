@@ -30,7 +30,7 @@ class SearchServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        //
+        $this->app->bind('search', 'Remoblaser\Search\Search');
     }
 
     /**
