@@ -18,8 +18,9 @@ class SearchServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package(
-            'remoblaser/search', null, __DIR__.'/../..');
+        $this->publishes([
+            __DIR__.'/../../config/config.php' => config_path('search.php'),
+        ]);
 
     }
 
