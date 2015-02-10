@@ -34,7 +34,7 @@ class Search {
      */
     private function getSearchableFor($function)
     {
-        $className = Config::get("search::$function");
+        $className = Config::get("search.$function");
 
         if(is_null($className))
             throw new SearchException("No model for $function has been found in the config.");
@@ -50,7 +50,7 @@ class Search {
      */
     public function all($keyword)
     {
-        $registeredModels = Config::get("search::config");
+        $registeredModels = Config::get("search");
 
         $resultSet = [];
         foreach($registeredModels as $model) {

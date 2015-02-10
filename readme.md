@@ -1,4 +1,4 @@
-# Search Package for Laravel 4.2
+# Search Package for Laravel 5
 
 ## Install With Composer
 
@@ -9,7 +9,7 @@
 ```
 
 ## Configure the app
-Add the service provider to `app/config/app.php`.
+Add the service provider to `config/app.php`.
 
 ```php
 'providers' => array(
@@ -29,7 +29,7 @@ Register the alias in the `app/config/app.php` file.
 
 Publish the configuration
 ```
-php artisan config:publish remoblaser/search
+php artisan vendor:publish
 ```
 
 ## Usage
