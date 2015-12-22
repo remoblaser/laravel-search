@@ -4,7 +4,7 @@
 
 ```js
 "require": {
-    "remoblaser/search": "dev-master"
+    "remoblaser/search": "^0.3.0"
 }
 ```
 
